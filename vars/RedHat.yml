@@ -3,8 +3,9 @@
 pdns_admin_packages:
   - curl
   - git
-  - python
-  - python-devel
+  - python34
+  - python34-devel
+  - python34-urllib3
   - cyrus-sasl-devel
   - autoconf
   - automake

@@ -1,8 +1,7 @@
 ---
 pdns_admin_service_name: powerdns
 pdns_admin_git_repo_url: https://github.com/ngoduykhanh/PowerDNS-Admin.git
-pdns_admin_pip_packages:
-  - mysql-python
+pdns_admin_pip_packages: []
 
 pdns_admin_root_path: /var/www
 pdns_admin_path: "{{ pdns_admin_root_path }}/powerdns-admin"
@@ -17,7 +16,7 @@ pdns_admin_systemd_template_filename: "{{ pdns_admin_systemd_filename }}.j2"
 pdns_admin_systemd_filepath: "/etc/systemd/system/{{ pdns_admin_systemd_filename }}"
 
 pdns_admin_python_venv_path: /opt/vens/powerdns
-pdns_admin_python_path: "{{ pdns_admin_python_venv_path }}/bin/python"
+pdns_admin_python_path: "{{ pdns_admin_python_venv_path }}/bin/python3"
 
 #TODO merge all configuration
 #TODO union configuration
@@ -48,7 +47,7 @@ pdns_admin_database_config:
   #sqlalchemy_database_uri: 'sqlite:////path/to/your/pdns.db'
   sqlalchemy_track_modifications: true
 
-# pdns_admin_external_auth_config:
+pdns_admin_external_auth_config:
 #   ldap:
 #     # ldap config
 #     ldap_type: ldap
@@ -79,6 +78,28 @@ pdns_admin_database_config:
 #     github_oauth_url: http://127.0.0.1:5000/api/v3/
 #     github_oauth_token: http://127.0.0.1:5000/oauth/token
 #     github_oauth_authorize: http://127.0.0.1:5000/oauth/authorize
+   saml:
+      # saml authentication
+      saml_enabled: false
+#      saml_debug: true
+#      saml_path: os.path.join(os.path.dirname(__file__), 'saml')
+#      ##Example for ADFS Metadata-URL
+#      saml_metadata_url: 'https://<hostname>/FederationMetadata/2007-06/FederationMetadata.xml'
+#      #Cache Lifetime in Seconds
+#      saml_metadata_cache_lifetime: 1
+#      saml_sp_entity_id: 'http://<SAML SP Entity ID>'
+#      saml_sp_contact_name: '<contact name>'
+#      saml_sp_contact_mail: '<contact mail>'
+#      #Cofigures if SAML tokens should be encrypted.
+#      #If enabled a new app certificate will be generated on restart
+#      saml_sign_request: false
+#      #Use SAML standard logout mechanism retreived from idp metadata
+#      #If configured false don't care about SAML session on logout.
+#      #Logout from PowerDNS-Admin only and keep SAML session authenticated.
+#      saml_logout: false
+#      #Configure to redirect to a different url then PowerDNS-Admin login after SAML logout
+#      #for example redirect to google.com after successful saml logout
+#      #saml_logout_url: 'https://google.com'
 
 pdns_admin_main_config:
   # powerdns config

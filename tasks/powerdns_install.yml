@@ -35,9 +35,11 @@
   pip:
     requirements: "{{ pdns_admin_requirements_path }}"
     virtualenv: "{{ pdns_admin_python_venv_path }}"
+    virtualenv_python: python3
 
 - name: Install some more required packages
   pip:
     name: "{{ item }}"
     virtualenv: "{{ pdns_admin_python_venv_path }}"
+    virtualenv_python: python3
   with_items: "{{ pdns_admin_pip_packages }}"
